@@ -27,6 +27,7 @@
   <link rel="apple-touch-icon" href="assets/img/nashir-apple-touch-icon.png" sizes="180x180">
 </head>
 <body>
+  <div class="reading-progress" aria-hidden="true"></div>
   <a class="skip-link" href="#main">Skip to content</a>
   <header class="site-header" id="site-header">
     <div class="shell nav-shell">
@@ -46,7 +47,7 @@
         <div class="hero-grid">
           <div class="hero-copy">
             <p class="eyebrow">Nashir Abdullah <span>/</span> Flutter developer</p>
-            <h1 id="hero-title">Small screens.<br>Big <em>possibilities.</em></h1>
+            <h1 id="hero-title"><span class="hero-line">Small screens.</span><span class="hero-line">Big <em>possibilities.</em></span></h1>
             <p class="hero-lede">I turn complex ideas into mobile experiences that just feel right. Thoughtfully built for iOS and Android.</p>
             <div class="hero-actions">
               <a class="button button-primary" href="#work">Explore my work <i class="bi bi-arrow-down-right" aria-hidden="true"></i></a>
@@ -63,8 +64,8 @@
         </div>
         <div class="hero-bottom">
           <div class="hero-proof" aria-label="Career highlights">
-            <div><strong>4<span>+</span></strong><span>Years of experience</span></div>
-            <div><strong>10<span>+</span></strong><span>Products built &amp; released</span></div>
+            <div><strong aria-label="4 plus"><span class="stat-number" data-count="4" aria-hidden="true">4</span><span aria-hidden="true">+</span></strong><span>Years of experience</span></div>
+            <div><strong aria-label="10 plus"><span class="stat-number" data-count="10" aria-hidden="true">10</span><span aria-hidden="true">+</span></strong><span>Products built &amp; released</span></div>
             <div><strong>iOS <span>&amp;</span> Android</strong><span>One thoughtful experience</span></div>
           </div>
           <a class="scroll-cue" href="#work"><span>Scroll to explore</span><i class="bi bi-arrow-down" aria-hidden="true"></i></a>
@@ -73,8 +74,8 @@
     </section>
 
     <div class="ticker" aria-label="Core capabilities"><div class="ticker-track">
-      <span>Flutter development</span><i>✦</i><span>Clean architecture</span><i>✦</i><span>Firebase</span><i>✦</i><span>REST APIs</span><i>✦</i><span>Google Maps</span><i>✦</i><span>Payment gateways</span><i>✦</i><span>AI chatbots</span><i>✦</i><span>App Store delivery</span><i>✦</i>
-      <span aria-hidden="true">Flutter development</span><i aria-hidden="true">✦</i><span aria-hidden="true">Clean architecture</span><i aria-hidden="true">✦</i><span aria-hidden="true">Firebase</span><i aria-hidden="true">✦</i><span aria-hidden="true">REST APIs</span><i aria-hidden="true">✦</i>
+      <div class="ticker-group"><span>Flutter development</span><i aria-hidden="true">✦</i><span>Clean architecture</span><i aria-hidden="true">✦</i><span>Firebase</span><i aria-hidden="true">✦</i><span>REST APIs</span><i aria-hidden="true">✦</i><span>Google Maps</span><i aria-hidden="true">✦</i><span>Payment gateways</span><i aria-hidden="true">✦</i><span>AI chatbots</span><i aria-hidden="true">✦</i><span>App Store delivery</span><i aria-hidden="true">✦</i></div>
+      <div class="ticker-group ticker-copy" aria-hidden="true"><span>Flutter development</span><i aria-hidden="true">✦</i><span>Clean architecture</span><i aria-hidden="true">✦</i><span>Firebase</span><i aria-hidden="true">✦</i><span>REST APIs</span><i aria-hidden="true">✦</i><span>Google Maps</span><i aria-hidden="true">✦</i><span>Payment gateways</span><i aria-hidden="true">✦</i><span>AI chatbots</span><i aria-hidden="true">✦</i><span>App Store delivery</span><i aria-hidden="true">✦</i></div>
     </div></div>
 
     <section class="section work-section" id="work">
@@ -194,6 +195,8 @@
   </main>
 
   <footer class="site-footer"><div class="shell"><p>© <span id="year">2026</span> Nashir Abdullah</p><p>Designed with intent. Built with care.</p><a href="#home">Back to top <i class="bi bi-arrow-up"></i></a></div></footer>
+  <button class="motion-toggle" type="button" aria-pressed="false" hidden><i class="bi bi-pause-fill" aria-hidden="true"></i><span>Pause motion</span></button>
   <script src="assets/js/main.js"></script>
+  <script src="assets/js/motion.js"></script>
 </body>
 </html>
