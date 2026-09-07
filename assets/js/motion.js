@@ -3,7 +3,6 @@
   const reduce = window.matchMedia("(prefers-reduced-motion: reduce)");
   const pointer = window.matchMedia("(hover: hover) and (pointer: fine) and (min-width: 801px)");
   const root = document.documentElement;
-  const control = document.querySelector(".motion-toggle");
   const progress = document.querySelector(".reading-progress");
   const portrait = document.querySelector(".hero-portrait");
   const animations = new Set();
@@ -11,14 +10,12 @@
   let observer;
   let revealObserver;
   let enabled = false;
-  let paused = false;
   let scrollFrame = 0;
   let pointerFrame = 0;
   let documentHeight = 1;
   let heroVisible = true;
   const revealed = new WeakSet();
   const counted = new WeakSet();
-  try { paused = localStorage.getItem("portfolio-motion") === "paused"; } catch { /* Storage is optional. */ }
 
   function animate(element, keyframes, options = {}) {
     if (!enabled || !element) return;
@@ -129,14 +126,8 @@
   });
 
   function sync() {
-    enabled = !reduce.matches && !paused && typeof Element.prototype.animate === "function";
+    enabled = !reduce.matches && typeof Element.prototype.animate === "function";
     root.classList.toggle("motion-enabled", enabled);
-    if (control) {
-      control.hidden = reduce.matches || typeof Element.prototype.animate !== "function";
-      control.setAttribute("aria-pressed", String(paused));
-      control.querySelector("span").textContent = paused ? "Resume motion" : "Pause motion";
-      control.querySelector("i").className = paused ? "bi bi-play-fill" : "bi bi-pause-fill";
-    }
     revealObserver?.disconnect();
     observer?.disconnect();
     if (enabled) {
@@ -156,11 +147,6 @@
     }
   }
 
-  control?.addEventListener("click", () => {
-    paused = !paused;
-    try { localStorage.setItem("portfolio-motion", paused ? "paused" : "enabled"); } catch { /* Preference remains valid for this page. */ }
-    sync();
-  });
   reduce.addEventListener("change", sync);
   window.addEventListener("scroll", requestScroll, { passive: true });
   window.addEventListener("resize", measure, { passive: true });
